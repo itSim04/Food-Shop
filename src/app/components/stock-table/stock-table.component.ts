@@ -15,6 +15,7 @@ interface Product {
 })
 export class StockTableComponent {
 
+show_out_of_stock: boolean = true;
   products: Product[] = [
 
     {
