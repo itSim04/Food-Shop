@@ -26,6 +26,26 @@ export class StockTableComponent {
       availability: false,
       name: 'Banana',
       price: 1
+    },
+    {
+      availability: true,
+      name: 'Orange',
+      price: 9
+    },
+    {
+      availability: true,
+      name: 'Mango',
+      price: 12
+    },
+    {
+      availability: true,
+      name: 'Elite',
+      price: 0
+    },
+    {
+      availability: false,
+      name: 'Tomato',
+      price: 5
     }
 
   ];

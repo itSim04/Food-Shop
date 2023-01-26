@@ -13,9 +13,6 @@
             <th>
                 Price
             </th>
-            <th>
-                Availability
-            </th>
 
         </tr>
 
@@ -24,10 +21,9 @@
     <tbody>
 
         <tr *ngFor="let product of products; let i = index">
-            <td>{{i}}</td>
+            <td [style.backgroundColor]="product.availability ? 'green' : 'red'" >{{i}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price | number}}</td>
-            <td>{{product.availability}}</td>
         </tr>
 
     </tbody>
