@@ -23,11 +23,11 @@
 
     <tbody>
 
-        <tr>
-            <td>1</td>
-            <td>Apple</td>
-            <td>2$</td>
-            <td>Yes</td>
+        <tr *ngFor="let product of products; let i = index">
+            <td>{{i}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price | number}}</td>
+            <td>{{product.availability}}</td>
         </tr>
 
     </tbody>
