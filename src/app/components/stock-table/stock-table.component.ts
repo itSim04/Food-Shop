@@ -16,6 +16,7 @@ interface Product {
 export class StockTableComponent {
 
 show_out_of_stock: boolean = true;
+price_slider: number = 1;
   products: Product[] = [
 
     {
@@ -50,5 +51,11 @@ show_out_of_stock: boolean = true;
     }
 
   ];
+
+  getMax() {
+
+    return Math.max(...this.products.map(t => t.price));
+
+  }
 
 }

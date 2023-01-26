@@ -1,4 +1,7 @@
 <mat-checkbox [(ngModel)]="show_out_of_stock" class="example-margin">Show out of stock</mat-checkbox>
+<mat-slider min="0" [max]="getMax()" step="1">
+    <input [(ngModel)]="price_slider" matSliderThumb>
+  </mat-slider>
 <table>
 
     <thead>
@@ -22,7 +25,7 @@
     <tbody>
 
         <ng-container *ngFor="let product of products; let i = index">
-            <tr *ngIf="show_out_of_stock || product.availability">
+            <tr *ngIf="product.price <= price_slider && (show_out_of_stock || product.availability)">
                 <td [style.backgroundColor]="product.availability ? 'green' : 'red'">{{i}}</td>
                 <td>{{product.name}}</td>
                 <td>{{product.price | number}}</td>
