@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Login User</h1>
+<div mat-dialog-content>
+
+    <mat-form-field appearance="fill">
+        <mat-label>User</mat-label>
+        <mat-select>
+            <mat-option (onSelectionChange)="setChosenId($event)" *ngFor="let user of users.users; let i = index" [value]="i">
+                {{user.first_name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="chosen_id < 0" mat-button [mat-dialog-close]="chosen_id">Login</button>
+
+</div>

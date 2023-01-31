@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Add Room</h1>
+<div mat-dialog-content>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <mat-select>
+            <mat-option (onSelectionChange)="setChosenId($event)" *ngFor="let product of products.products; let i = index" [value]="i">
+                {{product.name}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="chosen_id < 0" mat-button [mat-dialog-close]="chosen_id">Remove</button>
+
+</div>

@@ -1,0 +1,45 @@
+<button mat-raised-button color="primary" (click)="goToRooms()">Go To Rooms</button>
+<button mat-raised-button color="primary" (click)="openLoginDialog()">Login</button>
+
+
+<table *ngIf="users.length">
+
+    <thead>
+
+        <tr>
+
+            <th>
+                Id
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Birthday
+            </th>
+            <th>
+                Country
+            </th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        <ng-container *ngFor="let user of users; let i = index">
+            <tr>
+                <td [style.background]="logged_in == user.first_name ? 'green' : ''">{{i}}</td>
+                <td>{{user.first_name}}</td>
+                <td>{{user.last_name}}</td>
+                <td>{{user.birthday}}</td>
+                <td>{{user.country}}</td>
+            </tr>
+        </ng-container>
+
+    </tbody>
+
+</table>

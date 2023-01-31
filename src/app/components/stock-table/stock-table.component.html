@@ -1,8 +1,13 @@
 <mat-checkbox [(ngModel)]="show_out_of_stock" class="example-margin">Show out of stock</mat-checkbox>
-<mat-slider min="0" [max]="getMax()" step="1">
+<br><mat-slider min="0" [max]="getMax()" step="1">
     <input [(ngModel)]="price_slider" matSliderThumb>
-  </mat-slider>
-<table>
+</mat-slider>
+
+<br><button mat-raised-button color="primary" (click)="openAddRoom()">Add Room</button>
+<br><button [disabled]="!products.length" mat-raised-button color="primary" (click)="openRemoveRoom()">Remove Room</button>
+<br><button mat-raised-button color="primary" (click)="goToUsers()">Go To Users</button>
+
+<table *ngIf="products.length">
 
     <thead>
 
@@ -12,10 +17,10 @@
                 Id
             </th>
             <th>
-                Product Name
+                Room Name
             </th>
             <th>
-                Price
+                Capacity
             </th>
 
         </tr>

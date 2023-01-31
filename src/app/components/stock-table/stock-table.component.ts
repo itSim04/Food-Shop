@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
+import { MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { AddRoomDialog } from './add-room-dialog/add-room-dialog';
+import { RemoveRoomDialog } from './remove-room-dialog/remove-room-dialog';
 
-interface Product {
+
+export interface Product {
 
   name: string,
   price: number,
@@ -13,10 +18,10 @@ interface Product {
   templateUrl: './stock-table.component.html',
   styleUrls: ['./stock-table.component.scss']
 })
-export class StockTableComponent {
+export class RoomSectionComponent {
 
-show_out_of_stock: boolean = true;
-price_slider: number = 1;
+  show_out_of_stock: boolean = true;
+  price_slider: number = this.getMax();
   products: Product[] = [
 
     {
@@ -52,9 +57,53 @@ price_slider: number = 1;
 
   ];
 
+  constructor (public dialog: MatDialog, public router: Router) { }
+
+
+  openAddRoom(): void {
+    const dialogRef = this.dialog.open(AddRoomDialog);
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      if (result) {
+        this.products.push(result);
+        this.price_slider = this.getMax();
+      }
+    });
+  }
+
+  openRemoveRoom(): void {
+    const dialogRef = this.dialog.open(RemoveRoomDialog, {
+
+      data: { products: this.products }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      console.log("This closed with: " + result);
+      this.products.splice(result, 1);
+      this.price_slider = this.getMax();
+
+    });
+  }
+
+  goToUsers() {
+
+    this.router.navigate(['/users']);
+
+  }
+
+
   getMax() {
 
-    return Math.max(...this.products.map(t => t.price));
+    if (this.products) {
+      return Math.max(...this.products.map(t => t.price));
+
+    } else {
+
+      return 0;
+
+    }
 
   }
 

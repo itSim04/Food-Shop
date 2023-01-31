@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RoomSectionComponent } from './stock-table.component';
+import { UserSectionComponent } from './user-section.component';
 
-describe('StockTableComponent', () => {
-  let component: RoomSectionComponent;
-  let fixture: ComponentFixture<RoomSectionComponent>;
+describe('UserSectionComponent', () => {
+  let component: UserSectionComponent;
+  let fixture: ComponentFixture<UserSectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RoomSectionComponent ]
+      declarations: [ UserSectionComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RoomSectionComponent);
+    fixture = TestBed.createComponent(UserSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

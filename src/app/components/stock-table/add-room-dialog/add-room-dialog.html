@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Add Room</h1>
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+        <mat-label>Room Label</mat-label>
+        <input [(ngModel)]="room_name" matInput placeholder="Orange">
+        <mat-icon matSuffix>room</mat-icon>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill">
+        <mat-label>Room Capacity</mat-label>
+        <input [(ngModel)]="room_capacity" type="number" matInput placeholder="3">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button [disabled]="!room_name || room_capacity <= 0" mat-button [mat-dialog-close]="{
+        
+        name: room_name,
+        price: room_capacity,
+        availability: true
+        
+    }">Add</button>
+
+</div>
